@@ -1,36 +1,88 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+*.dex
+*.lock
+*.bin
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
 *.iml
-/.gradle
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Web related
+lib/generated_plugin_registrant.dart
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Miscellaneous
+build application files
+*.apk
+*.ap_
+*.aab
+
+build/
+
+Local configuration file (sdk path, etc)
+app/version.properties
+
+# Flutter Modules
+.android
+.ios
+
+# IntelliJ related
 .gradle
 .idea
 /local.properties
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
-.DS_Store
+android/.gradle
+/android/local.properties
+
 build
 /build
 /captures
 .externalNativeBuild
 
-built application files
-*.apk
-*.ap_
-*.aab
-
-files for the dex VM
-*.dex
-
-Java class files
-*.class
-
 generated files
 bin/
 gen/
 .externalNativeBuild/
-
-Local configuration file (sdk path, etc)
-local.properties
-app/version.properties
 
 # SonarQube
 .sonar/
