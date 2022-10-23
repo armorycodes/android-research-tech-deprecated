@@ -1,6 +1,7 @@
 package com.frogobox.research.core
 
 import android.os.Bundle
+import android.util.Log
 import androidx.viewbinding.ViewBinding
 
 /**
@@ -13,17 +14,28 @@ import androidx.viewbinding.ViewBinding
  * All rights reserved
  */
 
-abstract class BaseBindActivity<VB: ViewBinding> : BaseActivity() {
+abstract class BaseBindActivity<VB : ViewBinding> : BaseActivity() {
+
+    companion object {
+        private val TAG: String = BaseBindActivity::class.java.simpleName
+    }
 
     protected val binding: VB by lazy { initBinding() }
 
     abstract fun initBinding(): VB
 
-    open fun initView() {}
+    open fun initView() {
+        Log.d(TAG, "initView")
+    }
+
+    open fun initObserver() {
+        Log.d(TAG, "initObserver")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        initObserver()
         initView()
     }
 

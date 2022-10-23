@@ -20,7 +20,7 @@ import androidx.viewbinding.ViewBinding
 abstract class BaseBindFragment<VB : ViewBinding> : BaseFragment() {
 
     companion object {
-        val TAG: String = BaseBindFragment::class.java.simpleName
+        private val TAG: String = BaseBindFragment::class.java.simpleName
     }
 
     private var _binding: VB? = null
@@ -28,6 +28,10 @@ abstract class BaseBindFragment<VB : ViewBinding> : BaseFragment() {
     protected val binding: VB get() = _binding!!
 
     abstract fun setupViewBinding(inflater: LayoutInflater, container: ViewGroup?): VB
+
+    open fun initView() {}
+
+    open fun initObserver() {}
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +49,12 @@ abstract class BaseBindFragment<VB : ViewBinding> : BaseFragment() {
         super.onDestroy()
         _binding = null
         Log.d(TAG,"Destroying View Binding")
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initObserver()
+        initView()
     }
 
 }
